@@ -3,13 +3,13 @@ import { Observer } from "../interface/Observer";
 import { WeatherData } from "./WeatherData";
 
 export class CurrentConditionDisplay implements Observer, DisplayElement {
-  private temperature;
-  private humidity;
-  public weatherData;
+  private temperature!: number;
+  private humidity!: number;
+  public weatherData!: WeatherData;
 
   constructor(weatherData: WeatherData) {
     this.weatherData = weatherData;
-    this.weatherData.registerObserver(this.weatherData);
+    this.weatherData.registerObserver(this);
   }
 
   public update(temperature: number, humidity: number, pressure: number) { // 타입 자동완성 무엇..

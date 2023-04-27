@@ -3,9 +3,9 @@ import { Subject } from "../interface/Subject";
 
 export class WeatherData implements Subject {
   private observers = new Set<Observer>();
-  private temperature;
-  private humidity;
-  private pressure;
+  private temperature!: number;
+  private humidity!: number;
+  private pressure!: number;
 
   public registerObserver(o: Observer) {
     this.observers.add(o);
@@ -29,6 +29,7 @@ export class WeatherData implements Subject {
     this.temperature = temperature;
     this.humidity = humidity;
     this.pressure = pressure;
+    this.measurementsChanged()
   }
 
   // etc WeatherData method...
