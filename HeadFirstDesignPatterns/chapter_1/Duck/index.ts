@@ -2,8 +2,8 @@ import { FlyBehavior } from "./behavior/Fly.behavior";
 import { QuackBehavior } from "./behavior/quack.behavior";
 
 export abstract class Duck {
-  abstract flyBehavior: FlyBehavior;
-  abstract quackBehavior: QuackBehavior;
+  protected abstract flyBehavior: FlyBehavior;
+  protected abstract quackBehavior: QuackBehavior;
 
   public Duck() { }
 
