@@ -5,7 +5,7 @@ import { WeatherData } from "./WeatherData";
 export class CurrentConditionDisplay implements Observer, DisplayElement {
   private temperature!: number;
   private humidity!: number;
-  public weatherData!: WeatherData;
+  private weatherData!: WeatherData;
 
   constructor(weatherData: WeatherData) {
     this.weatherData = weatherData;

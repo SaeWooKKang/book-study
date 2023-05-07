@@ -7,7 +7,6 @@ export class WeatherStation {
   ) {
     const currentDisplay = new CurrentConditionDisplay(this.weatherData);
 
-
     weatherData.setMeasurements(20, 10, 30);
   }
 }

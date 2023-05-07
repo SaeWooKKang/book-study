@@ -21,7 +21,7 @@ export class WeatherData implements Subject {
     }
   }
 
-  public measurementsChanged() {
+  public measurementsChanged() { // 한 단계를 왜 추가 했을까..?
     this.notifyObservers();
   }
 
@@ -29,7 +29,7 @@ export class WeatherData implements Subject {
     this.temperature = temperature;
     this.humidity = humidity;
     this.pressure = pressure;
-    this.measurementsChanged()
+    this.measurementsChanged();
   }
 
   // etc WeatherData method...
