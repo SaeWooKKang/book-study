@@ -1,13 +1,13 @@
 import { DisplayElement } from "../interface/DisplayElement";
-import { Observer } from "../interface/Observer";
-import { WeatherData } from "./WeatherData";
+import { PushObserver, PullObserver } from "../interface/Observer";
+import { PullWeatherData, PushWeatherData } from "./WeatherData";
 
-export class CurrentConditionDisplay implements Observer, DisplayElement {
+export class PushCurrentConditionDisplay implements PushObserver, DisplayElement {
   private temperature!: number;
   private humidity!: number;
-  private weatherData!: WeatherData;
+  private weatherData!: PushWeatherData;
 
-  constructor(weatherData: WeatherData) {
+  constructor(weatherData: PushWeatherData) {
     this.weatherData = weatherData;
     this.weatherData.registerObserver(this);
   }
@@ -24,3 +24,27 @@ export class CurrentConditionDisplay implements Observer, DisplayElement {
     );
   }
 }
+
+export class PullCurrentConditionDisplay implements PullObserver, DisplayElement {
+  private temperature!: number;
+  private humidity!: number;
+  private weatherData!: PullWeatherData;
+
+  constructor(weatherData: PullWeatherData) {
+    this.weatherData = weatherData;
+    this.weatherData.registerObserver(this);
+  }
+
+  public update() {
+    this.temperature = this.weatherData.getTemperature();
+    this.humidity = this.weatherData.getHumidity();
+    this.display();
+  }
+
+  public display() {
+    console.log(
+      `현재 상태: 온도 ${this.temperature} F, 습도 ${this.humidity}%`
+    );
+  }
+}
+

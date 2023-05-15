@@ -1,3 +1,5 @@
-import { WeatherStation } from './semanticClass/WeatherStation';
+import { PushWeatherStation, PullWeatherStation } from './semanticClass/WeatherStation';
 
-const weatherStation = new WeatherStation();
+const pushWeatherStation = new PushWeatherStation();
+
+const pullWeatherStation = new PullWeatherStation();

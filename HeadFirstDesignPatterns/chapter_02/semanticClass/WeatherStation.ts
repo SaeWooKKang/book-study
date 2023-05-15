@@ -1,11 +1,21 @@
-import { WeatherData } from "./WeatherData";
-import { CurrentConditionDisplay } from './CurrentConditionDisplay';
+import { PushWeatherData, PullWeatherData } from "./WeatherData";
+import { PushCurrentConditionDisplay, PullCurrentConditionDisplay } from './CurrentConditionDisplay';
 
-export class WeatherStation {
+export class PushWeatherStation {
   constructor(
-    public weatherData = new WeatherData()
+    public weatherData = new PushWeatherData()
   ) {
-    const currentDisplay = new CurrentConditionDisplay(this.weatherData);
+    const currentDisplay = new PushCurrentConditionDisplay(this.weatherData);
+
+    weatherData.setMeasurements(20, 10, 30);
+  }
+}
+
+export class PullWeatherStation {
+  constructor(
+    public weatherData = new PullWeatherData()
+  ) {
+    const currentDisplay = new PullCurrentConditionDisplay(this.weatherData);
 
     weatherData.setMeasurements(20, 10, 30);
   }
