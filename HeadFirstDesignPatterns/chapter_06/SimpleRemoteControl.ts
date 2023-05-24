@@ -39,3 +39,5 @@ const remote = new SimpleRemoteControl();
 
 remote.setCommand(lightOn);
 remote.buttonWasPressed();
+
+export { };
